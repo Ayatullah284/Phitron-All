@@ -1,0 +1,107 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+    public:
+    int val;
+    Node* next;
+    Node* prev;
+    Node(int val){
+        this->val=val;
+        this->next=NULL;
+        this->prev=NULL;
+    }
+};
+void insert_at_tail(Node* &head, Node* &tail, int v){
+    Node* newNode=new Node(v);
+    if (tail==NULL)
+    {
+        head=newNode;
+        tail=newNode;
+        return;
+    }
+    tail->next=newNode;
+    newNode->prev=tail;
+    tail=tail->next;
+    
+}
+void insert_at_tail_2(Node* &head_2, Node* &tail_2, int v){
+    Node* newNode=new Node(v);
+    if (tail_2==NULL)
+    {
+        head_2=newNode;
+        tail_2=newNode;
+        return;
+    }
+    tail_2->next=newNode;
+    newNode->prev=tail_2;
+    tail_2=tail_2->next;
+    
+}
+void Same_to_Same(Node* head,Node* head_2,int cnt,int cnt_2){
+    int flag=1;
+    Node* tmp=head;
+    Node* tmp_2=head_2;
+    while (tmp!=NULL & tmp_2!=NULL)
+    {
+
+        if (tmp->val!=tmp_2->val ||cnt!=cnt_2)
+        {
+            flag=0;
+            break;
+        }{
+            tmp=tmp->next;
+            tmp_2=tmp_2->next;
+        }
+        
+    }
+
+    if (flag==0)
+    {
+        cout<<"NO"<<endl;
+    }else if (flag==1)
+    {
+        cout<<"YES"<<endl;
+    }
+    
+    
+    
+}
+int main(){
+
+    Node* head=NULL;
+    Node* tail=NULL;
+    int cnt=0;
+    Node* head_2=NULL;
+    Node* tail_2=NULL;
+    int cnt_2=0;
+
+    int val;
+    while (true)
+    {
+        cin>>val;
+        if (val==-1)
+        {
+            break;
+        }
+        cnt++;
+        insert_at_tail(head,tail,val);
+        
+    }
+    int val_2;
+    while (true)
+    {
+        cin>>val_2;
+        if (val_2==-1)
+        {
+            break;
+        }
+        cnt_2++;
+        insert_at_tail_2(head_2,tail_2,val_2);
+        
+    }
+    Same_to_Same(head,head_2,cnt,cnt_2);
+
+    
+    
+    return 0;
+}
