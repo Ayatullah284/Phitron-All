@@ -1,0 +1,34 @@
+https://cplusplus.com/reference/string/string/
+
+        1.Capacity:
+s.size()            
+s.max_size()       -
+s.capacity()       -
+s.clear()
+s.empty()
+s.resize()
+
+
+        2.Element Access:
+[0]<<endl;       //first element
+s.at(0)          //first element   -
+s.front()        //first element   -
+
+s[s.size()-1]    //last element    -
+s.back()         //last element
+
+
+        3.Modifiers:
+a+=b;
+a.append(b);         -
+
+a+="A";
+a.push_back('A');    -
+a.pop_back();
+
+a="Gelo";
+a.assign("Gelo");    -
+
+a.erase(4,5);
+a.replace(4,3,"boo");
+a.insert(5,"Ayatullah");
